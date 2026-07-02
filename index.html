@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Fazal Khan · Senior Software Engineer & AI Architect</title>
-  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -15,12 +14,16 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: #0b0d10;
       color: #eaeef2;
       line-height: 1.6;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     .glass {
       background: rgba(20, 27, 35, 0.5);
@@ -32,10 +35,10 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
     section {
-      padding: 5rem 0;
+      padding: 4rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.03);
     }
     h1, h2, h3 {
@@ -43,26 +46,27 @@
       letter-spacing: -0.02em;
     }
     h2 {
-      font-size: 2.4rem;
-      margin-bottom: 2.5rem;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      margin-bottom: 2rem;
       display: inline-block;
       border-bottom: 3px solid #3b82f6;
       padding-bottom: 0.4rem;
     }
     .btn {
-      display: inline-block;
-      padding: 0.7rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
       border-radius: 40px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       background: transparent;
       border: 1px solid rgba(255,255,255,0.15);
       color: #eaeef2;
       transition: 0.25s ease;
       text-decoration: none;
-      margin-right: 0.6rem;
-      margin-bottom: 0.5rem;
       cursor: pointer;
+      white-space: nowrap;
     }
     .btn-primary {
       background: #3b82f6;
@@ -93,20 +97,21 @@
       border-color: #e68900;
     }
 
-    /* Hero */
+    /* ========== HERO ========== */
     #hero {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 6rem 0;
+      padding: 5rem 0 3rem;
     }
     #hero::before {
       content: '';
       position: absolute;
-      width: 600px;
-      height: 600px;
+      width: min(600px, 80vw);
+      height: min(600px, 80vw);
       background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.08), transparent 70%);
       top: -10%;
       right: -10%;
@@ -117,18 +122,20 @@
       z-index: 2;
     }
     .hero-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: rgba(59,130,246,0.15);
-      padding: 0.4rem 1.4rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 40px;
-      font-size: 0.85rem;
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
       font-weight: 500;
       color: #93bbfc;
       border: 1px solid rgba(59,130,246,0.2);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
     .hero-title {
-      font-size: 3.8rem;
+      font-size: clamp(2.2rem, 8vw, 3.8rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -136,65 +143,84 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
     .hero-sub {
-      font-size: 1.3rem;
+      font-size: clamp(0.95rem, 3vw, 1.3rem);
       font-weight: 400;
       color: #b0c7e5;
-      max-width: 640px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      max-width: 580px;
+      color: #b0c7e5;
+      margin-bottom: 2rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
+      gap: 0.6rem;
     }
     .tech-stack-hero {
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
+      gap: 0.6rem 1rem;
       opacity: 0.7;
-      font-size: 0.95rem;
+      font-size: clamp(0.8rem, 2.5vw, 0.95rem);
     }
     .tech-stack-hero i {
-      margin-right: 6px;
+      margin-right: 4px;
       color: #3b82f6;
     }
 
-    /* About */
+    /* ========== ABOUT ========== */
     .about-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
     .about-text p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       color: #cfddee;
-      font-size: 1.05rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
     }
     .philosophy {
       background: rgba(59,130,246,0.04);
       border-left: 4px solid #3b82f6;
-      padding: 1.2rem 1.8rem;
+      padding: 1rem 1.5rem;
       border-radius: 8px;
       font-style: italic;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+    }
+    .about-highlights {
+      background: rgba(18,26,36,0.5);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .about-highlights p {
+      margin-bottom: 0.6rem;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    }
+    .about-highlights i {
+      color: #3b82f6;
+      margin-right: 8px;
     }
 
-    /* Skills */
+    /* ========== SKILLS ========== */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
       margin-top: 1rem;
     }
     .skill-category {
       background: rgba(18, 26, 36, 0.7);
       backdrop-filter: blur(4px);
-      border-radius: 20px;
-      padding: 1.5rem 1.2rem;
+      border-radius: 16px;
+      padding: 1.2rem 1rem;
       border: 1px solid rgba(255,255,255,0.03);
       transition: 0.2s;
     }
@@ -202,172 +228,274 @@
       border-color: rgba(59,130,246,0.2);
     }
     .skill-category h4 {
-      font-size: 1rem;
+      font-size: clamp(0.75rem, 2.5vw, 1rem);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #8ba7d5;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       border-bottom: 1px solid rgba(255,255,255,0.04);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
     }
     .skill-tag {
       display: inline-block;
       background: rgba(255,255,255,0.03);
-      padding: 0.25rem 0.9rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 30px;
-      font-size: 0.8rem;
-      margin: 0.25rem 0.2rem;
+      font-size: clamp(0.65rem, 2vw, 0.8rem);
+      margin: 0.2rem;
       border: 1px solid rgba(255,255,255,0.04);
       color: #cbdcee;
     }
 
-    /* Projects */
+    /* ========== PROJECTS ========== */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
     .project-card {
       background: rgba(16, 24, 34, 0.7);
       backdrop-filter: blur(6px);
-      border-radius: 24px;
-      padding: 1.8rem 1.5rem;
+      border-radius: 20px;
+      padding: 1.5rem 1.2rem;
       border: 1px solid rgba(255,255,255,0.04);
       transition: 0.2s;
       box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
     }
     .project-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       border-color: rgba(59,130,246,0.15);
     }
     .project-card .icon {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: #3b82f6;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
     .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      margin-bottom: 0.4rem;
     }
     .project-card p {
       color: #b0c7e5;
-      font-size: 0.95rem;
-      margin: 0.8rem 0 1rem;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      margin: 0.6rem 0 0.8rem;
     }
     .project-tech {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem 0.6rem;
-      margin: 0.8rem 0 1.2rem;
+      gap: 0.3rem 0.5rem;
+      margin: 0.6rem 0 1rem;
     }
     .project-tech span {
       background: rgba(59,130,246,0.08);
-      padding: 0.2rem 0.8rem;
+      padding: 0.15rem 0.6rem;
       border-radius: 30px;
-      font-size: 0.7rem;
+      font-size: clamp(0.6rem, 2vw, 0.7rem);
       font-weight: 500;
       color: #a0c4ff;
     }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
     .project-links a {
       color: #b0c7e5;
-      margin-right: 1.2rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
     .project-links a:hover { color: #fff; }
 
-    /* Experience timeline */
+    /* ========== TIMELINE ========== */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 1.2rem;
     }
     .timeline-item {
       display: flex;
-      gap: 1.5rem;
+      flex-direction: column;
+      gap: 0.3rem;
       background: rgba(18, 26, 36, 0.4);
-      padding: 1.2rem 1.8rem;
-      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
       border-left: 4px solid #3b82f6;
     }
     .timeline-item .year {
       font-weight: 700;
       color: #6b93d4;
-      min-width: 90px;
+      font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+    .timeline-item strong {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    }
+    .timeline-item div {
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      color: #b0c7e5;
     }
 
-    /* Security & certs */
+    /* ========== SECURITY & CERTS ========== */
     .security-grid, .certs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.8rem;
       margin-top: 1rem;
     }
     .security-item, .certs-item {
       background: rgba(20,30,42,0.5);
-      padding: 0.8rem 1.2rem;
+      padding: 0.6rem 1rem;
       border-radius: 40px;
       border: 1px solid rgba(255,255,255,0.02);
-      font-size: 0.95rem;
+      font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    /* Contact */
+    /* ========== CONTACT ========== */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 3rem;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
     .contact-info a {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
       color: #b0c7e5;
       margin-bottom: 0.8rem;
       text-decoration: none;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     }
-    .contact-info i { width: 28px; color: #3b82f6; }
+    .contact-info i { 
+      width: 20px; 
+      color: #3b82f6;
+      flex-shrink: 0;
+    }
     .contact-form input, .contact-form textarea {
       width: 100%;
-      padding: 0.8rem 1.2rem;
+      padding: 0.75rem 1rem;
       background: rgba(18,26,36,0.6);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 30px;
       color: #eaeef2;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       font-family: inherit;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     }
-    .contact-form textarea { min-height: 120px; border-radius: 20px; }
+    .contact-form textarea { 
+      min-height: 100px; 
+      border-radius: 16px; 
+    }
     .contact-form button {
       background: #3b82f6;
       border: none;
-      padding: 0.8rem 2.5rem;
+      padding: 0.75rem 2rem;
       border-radius: 40px;
       font-weight: 600;
       color: #fff;
       cursor: pointer;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     footer {
       text-align: center;
-      padding: 2.5rem 0;
+      padding: 2rem 0;
       color: #5d738b;
       border-top: 1px solid rgba(255,255,255,0.02);
+      font-size: clamp(0.75rem, 2.5vw, 0.9rem);
     }
 
-    /* Responsive */
-    @media (max-width: 800px) {
-      .hero-title { font-size: 2.6rem; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .container { padding: 0 1.2rem; }
-      section { padding: 3rem 0; }
-    }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2.2rem; }
-      .hero-sub { font-size: 1rem; }
+    /* ========== TABLET (600px+) ========== */
+    @media (min-width: 600px) {
+      .container {
+        padding: 0 2rem;
+      }
+      section {
+        padding: 4.5rem 0;
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .timeline-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .timeline-item .year {
+        min-width: 100px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2.5rem;
+      }
     }
 
-    /* scroll */
+    /* ========== DESKTOP (900px+) ========== */
+    @media (min-width: 900px) {
+      .container {
+        padding: 0 2.5rem;
+      }
+      section {
+        padding: 5rem 0;
+      }
+      .about-grid {
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .hero-actions {
+        gap: 0.8rem;
+      }
+      .btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ========== LARGE DESKTOP (1200px+) ========== */
+    @media (min-width: 1200px) {
+      .project-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .skills-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .security-grid, .certs-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ========== SCROLLBAR ========== */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0b0d10; }
     ::-webkit-scrollbar-thumb { background: #2a3a50; border-radius: 10px; }
+
+    /* ========== SAFE AREA (notch phones) ========== */
+    @supports (padding: max(0px)) {
+      .container {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+      }
+      footer {
+        padding-bottom: max(2rem, env(safe-area-inset-bottom));
+      }
+    }
   </style>
 </head>
 <body>
@@ -377,10 +505,10 @@
       <div class="hero-badge"><i class="fas fa-code"></i> Senior Software Engineer · AI Architect</div>
       <h1 class="hero-title">Fazal Khan</h1>
       <div class="hero-sub">
-        <i class="fas fa-location-dot" style="color:#3b82f6; margin-right: 8px;"></i> Pakistan &nbsp;·&nbsp; 
+        <i class="fas fa-location-dot" style="color:#3b82f6; margin-right: 6px;"></i> Pakistan · 
         <span style="color:#9bb8f0;">Backend · AI · DevOps · Security</span>
       </div>
-      <p style="max-width:580px; color:#b0c7e5; margin-bottom:2rem; font-size:1.1rem;">
+      <p class="hero-desc">
         Building scalable, secure, AI-powered systems that deliver measurable business value.
       </p>
       <div class="hero-actions">
@@ -409,18 +537,18 @@
       <div class="about-grid">
         <div class="about-text">
           <p>Senior Software Engineer with deep expertise in scalable backend systems, AI/ML, and cloud infrastructure. I architect secure, high-performance solutions that bridge cutting-edge AI with enterprise reliability.</p>
-          <p>My work spans from designing microservices in Python and Node.js to deploying LLM-based RAG pipelines, and conducting penetration testing to harden infrastructure. I focus on business-driven engineering that balances innovation with operational excellence.</p>
+          <p>My work spans from designing microservices in Python and Node.js to deploying LLM-based RAG pipelines, and conducting penetration testing to harden infrastructure.</p>
           <div class="philosophy">
             <i class="fas fa-quote-left" style="color:#3b82f6; margin-right:8px;"></i>
-            Engineering philosophy: secure by design, scalable by architecture, and intelligent by integration.
+            Secure by design, scalable by architecture, intelligent by integration.
           </div>
         </div>
-        <div style="background:rgba(18,26,36,0.5); border-radius:24px; padding:1.8rem; border:1px solid rgba(255,255,255,0.04);">
-          <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> 3+ years full-stack & systems</p>
-          <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> AI/ML & LLM production pipelines</p>
-          <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Cloud & DevOps (Docker, Linux)</p>
-          <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Security research & OWASP top 10</p>
-          <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Hugging Face, LangChain, RAG</p>
+        <div class="about-highlights">
+          <p><i class="fas fa-check-circle"></i> 3+ years full-stack & systems</p>
+          <p><i class="fas fa-check-circle"></i> AI/ML & LLM production pipelines</p>
+          <p><i class="fas fa-check-circle"></i> Cloud & DevOps (Docker, Linux)</p>
+          <p><i class="fas fa-check-circle"></i> Security research & OWASP top 10</p>
+          <p><i class="fas fa-check-circle"></i> Hugging Face, LangChain, RAG</p>
         </div>
       </div>
     </div>
@@ -433,9 +561,9 @@
       <div class="skills-grid">
         <div class="skill-category"><h4>Backend</h4><span class="skill-tag">Python</span><span class="skill-tag">Django</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Node.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Microservices</span></div>
         <div class="skill-category"><h4>AI & ML</h4><span class="skill-tag">LLMs</span><span class="skill-tag">RAG</span><span class="skill-tag">LangChain</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">ML</span><span class="skill-tag">Data Science</span></div>
-        <div class="skill-category"><h4>DevOps & Infra</h4><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">Git/GitHub</span><span class="skill-tag">Cloud</span><span class="skill-tag">CI/CD</span></div>
+        <div class="skill-category"><h4>DevOps</h4><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span><span class="skill-tag">Cloud</span><span class="skill-tag">CI/CD</span></div>
         <div class="skill-category"><h4>Databases</h4><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">SQL</span><span class="skill-tag">MongoDB</span></div>
-        <div class="skill-category"><h4>Security</h4><span class="skill-tag">OWASP</span><span class="skill-tag">Nmap</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">ZAP</span><span class="skill-tag">Penetration Testing</span></div>
+        <div class="skill-category"><h4>Security</h4><span class="skill-tag">OWASP</span><span class="skill-tag">Nmap</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">ZAP</span><span class="skill-tag">Pentest</span></div>
         <div class="skill-category"><h4>Cloud</h4><span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">GCP</span><span class="skill-tag">Serverless</span></div>
       </div>
     </div>
@@ -446,35 +574,68 @@
     <div class="container">
       <h2>Featured Projects</h2>
       <div class="project-grid">
-        <div class="project-card"><div class="icon"><i class="fas fa-robot"></i></div><h3>RAG‑Powered Q&A</h3><p>Enterprise Q&A system using LLMs, LangChain, and Pinecone. Deployed with FastAPI and Docker.</p><div class="project-tech"><span>Python</span><span>LangChain</span><span>FastAPI</span><span>RAG</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div></div>
-        <div class="project-card"><div class="icon"><i class="fas fa-shield-alt"></i></div><h3>Secure API Gateway</h3><p>Rate‑limited, JWT‑auth microservice gateway with OWASP filtering. Built in Node.js + Express.</p><div class="project-tech"><span>Node.js</span><span>JWT</span><span>OWASP</span><span>Redis</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div></div>
-        <div class="project-card"><div class="icon"><i class="fas fa-brain"></i></div><h3>LLM Fine‑tuning Studio</h3><p>Fine‑tune open‑source LLMs on custom data using Hugging Face & PEFT. Web interface with Gradio.</p><div class="project-tech"><span>Python</span><span>HF</span><span>PyTorch</span><span>Gradio</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div></div>
-        <div class="project-card"><div class="icon"><i class="fas fa-database"></i></div><h3>DevOps Monitoring Stack</h3><p>Prometheus + Grafana + Loki stack with custom exporters. Automated alerts and dashboards.</p><div class="project-tech"><span>Docker</span><span>Prometheus</span><span>Grafana</span><span>Linux</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div></div>
+        <div class="project-card">
+          <div class="icon"><i class="fas fa-robot"></i></div>
+          <h3>RAG‑Powered Q&A</h3>
+          <p>Enterprise Q&A system using LLMs, LangChain, and Pinecone.</p>
+          <div class="project-tech"><span>Python</span><span>LangChain</span><span>FastAPI</span><span>RAG</span></div>
+          <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div>
+        </div>
+        <div class="project-card">
+          <div class="icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Secure API Gateway</h3>
+          <p>Rate‑limited, JWT‑auth microservice gateway with OWASP filtering.</p>
+          <div class="project-tech"><span>Node.js</span><span>JWT</span><span>OWASP</span><span>Redis</span></div>
+          <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div>
+        </div>
+        <div class="project-card">
+          <div class="icon"><i class="fas fa-brain"></i></div>
+          <h3>LLM Fine‑tuning Studio</h3>
+          <p>Fine‑tune open‑source LLMs using Hugging Face & PEFT.</p>
+          <div class="project-tech"><span>Python</span><span>HF</span><span>PyTorch</span><span>Gradio</span></div>
+          <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div>
+        </div>
+        <div class="project-card">
+          <div class="icon"><i class="fas fa-database"></i></div>
+          <h3>DevOps Monitoring</h3>
+          <p>Prometheus + Grafana + Loki stack with automated alerts.</p>
+          <div class="project-tech"><span>Docker</span><span>Prometheus</span><span>Grafana</span><span>Linux</span></div>
+          <div class="project-links"><a href="#"><i class="fab fa-github"></i> Code</a></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE -->
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
       <h2>Experience Timeline</h2>
       <div class="timeline">
-        <div class="timeline-item"><span class="year">2023 – Now</span><div><strong>Senior Software Engineer / AI Architect</strong><br>Leading AI‑powered backend systems, RAG pipelines, and security audits.</div></div>
-        <div class="timeline-item"><span class="year">2021 – 2023</span><div><strong>Backend & DevOps Engineer</strong><br>Scalable microservices, Docker/K8s, cloud migrations, API design.</div></div>
-        <div class="timeline-item"><span class="year">2019 – 2021</span><div><strong>Security Researcher & ML Engineer</strong><br>Vulnerability assessment, secure coding, and ML-based threat detection.</div></div>
+        <div class="timeline-item">
+          <span class="year">2023 – Now</span>
+          <div><strong>Senior Software Engineer / AI Architect</strong><br>Leading AI‑powered backend systems, RAG pipelines, and security audits.</div>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2021 – 2023</span>
+          <div><strong>Backend & DevOps Engineer</strong><br>Scalable microservices, Docker/K8s, cloud migrations, API design.</div>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2019 – 2021</span>
+          <div><strong>Security Researcher & ML Engineer</strong><br>Vulnerability assessment, secure coding, and ML-based threat detection.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECURITY & RESEARCH -->
+  <!-- SECURITY -->
   <section id="security">
     <div class="container">
       <h2>Security & Research</h2>
       <div class="security-grid">
-        <div class="security-item"><i class="fas fa-shield-halved" style="color:#3b82f6;"></i> Web App Security (OWASP)</div>
-        <div class="security-item"><i class="fas fa-bug"></i> Vulnerability Assessment</div>
+        <div class="security-item"><i class="fas fa-shield-halved" style="color:#3b82f6;"></i> Web App Security</div>
+        <div class="security-item"><i class="fas fa-bug"></i> Vuln Assessment</div>
         <div class="security-item"><i class="fas fa-lock"></i> Secure Architecture</div>
-        <div class="security-item"><i class="fas fa-server"></i> Infrastructure Hardening</div>
+        <div class="security-item"><i class="fas fa-server"></i> Infra Hardening</div>
         <div class="security-item"><i class="fas fa-code"></i> SAST / DAST</div>
         <div class="security-item"><i class="fas fa-tools"></i> Nmap, Burp, ZAP</div>
       </div>
@@ -488,9 +649,9 @@
       <div class="certs-grid">
         <div class="certs-item"><i class="fas fa-certificate" style="color:#fbbf24;"></i> AI/ML Specialization</div>
         <div class="certs-item"><i class="fas fa-certificate" style="color:#fbbf24;"></i> Cloud Architect (AWS)</div>
-        <div class="certs-item"><i class="fas fa-certificate" style="color:#fbbf24;"></i> Offensive Security (OSCP)</div>
+        <div class="certs-item"><i class="fas fa-certificate" style="color:#fbbf24;"></i> Offensive Security</div>
         <div class="certs-item"><i class="fas fa-certificate" style="color:#fbbf24;"></i> DevOps Professional</div>
-        <div class="certs-item"><i class="fas fa-road"></i> Continuous: LLMs, RAG, Rust</div>
+        <div class="certs-item"><i class="fas fa-road"></i> LLMs, RAG, Rust</div>
       </div>
     </div>
   </section>
@@ -505,7 +666,7 @@
           <a href="https://github.com/Khan-Fazal-sys" target="_blank"><i class="fab fa-github"></i> github.com/Khan-Fazal-sys</a>
           <a href="https://huggingface.co/Khan719" target="_blank"><i class="fas fa-robot"></i> huggingface.co/Khan719</a>
           <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/fazal-khan</a>
-          <p style="margin-top:1.2rem; color:#8ba7d5;"><i class="fas fa-map-pin"></i> Pakistan · UTC+5</p>
+          <p style="margin-top:1rem; color:#8ba7d5; font-size:clamp(0.8rem,2.5vw,0.95rem);"><i class="fas fa-map-pin" style="color:#3b82f6; margin-right:6px;"></i> Pakistan · UTC+5</p>
         </div>
         <form class="contact-form">
           <input type="text" placeholder="Your name" />
@@ -519,23 +680,36 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Fazal Khan · Senior Software Engineer & AI Architect</p>
-      <p style="margin-top:0.5rem; font-size:0.9rem;"><i class="fas fa-code"></i> built with precision · scalable · secure · AI‑driven</p>
+      <p>© <span id="year"></span> Fazal Khan · Senior Software Engineer & AI Architect</p>
+      <p style="margin-top:0.4rem;"><i class="fas fa-code"></i> scalable · secure · AI‑driven</p>
     </div>
   </footer>
-  <!-- Minimal JS (smooth scroll, dynamic year) -->
+
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === "#") return;
         e.preventDefault();
         const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          const offset = 20;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       });
     });
-    // Update footer year if needed
-    document.querySelector('footer .container p:first-child').innerHTML = `© ${new Date().getFullYear()} Fazal Khan · Senior Software Engineer & AI Architect`;
+
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form submit (prevent default for demo)
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for your message! (Demo only)');
+      this.reset();
+    });
   </script>
 </body>
 </html>
