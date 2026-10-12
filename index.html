@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-5e2ESR8Ycmos6g3gAKr1Jvwye8sW4U1u/cAKulfVJnkakCcMqhOudbtPnvJ+nbv7" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-p3dSdftOecKvEbZNgAYG0As8vZoOy40pue0yFynID9L">
   </script>
+  <script
+  src="https://js-de.sentry-cdn.com/66c34b15cdd58b173e577b78a5619019.min.js"
+  crossorigin="anonymous"
+></script>
 
   <style>
     * {
@@ -177,6 +181,43 @@
     .tech-stack-hero i {
       margin-right: 4px;
       color: #3b82f6;
+    }
+    /* ========== SIGNATURE ========== */
+    .hero-signature {
+      width: min(430px, 90vw);
+      height: auto;
+      margin: -0.2rem 0 1.1rem 0;
+      overflow: visible;
+      display: block;
+    }
+
+    .hero-signature path {
+      fill: none;
+      stroke: #93bbfc;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 3;
+      opacity: 0;
+      filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.18));
+    }
+
+    .hero-signature.finished path {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .hero-signature {
+        width: min(340px, 88vw);
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-signature path {
+        opacity: 1 !important;
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+      }
     }
 
     /* ========== ABOUT ========== */
@@ -508,6 +549,76 @@
     <div class="container">
       <div class="hero-badge"><i class="fas fa-code"></i> Senior Software Engineer · AI Architect</div>
       <h1 class="hero-title">Fazal Khan</h1>
+
+      <svg
+        class="hero-signature"
+        viewBox="0 0 600 180"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Fazal Khan handwritten signature"
+      >
+        <path
+          class="signature-stroke"
+          d="M18 126C27 107 30 82 35 55C40 28 49 15 65 18C80 21 87 31 80 40C72 50 51 49 31 41C23 38 19 34 17 30"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M30 72C47 65 67 64 86 69C76 70 65 72 56 76"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M76 98C79 85 91 79 100 84C109 89 107 101 99 108C91 114 80 111 79 102C78 94 85 87 94 86C103 85 107 92 107 100C107 108 110 112 116 110C121 108 125 103 129 99"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M125 91C136 85 149 84 158 87C151 93 141 101 133 109C143 107 155 106 165 109C171 111 176 107 181 102"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M176 98C179 85 191 80 200 85C209 90 207 102 199 109C191 115 180 112 179 103C178 95 185 88 194 87C203 86 207 94 207 101C207 109 211 112 217 110C222 108 226 103 230 99"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M225 101C233 86 239 64 241 45C243 29 239 22 234 28C228 36 229 66 233 91C235 105 241 113 250 111C257 109 263 103 269 98"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M260 121C266 103 270 82 274 60C278 37 286 25 296 24C307 23 311 31 305 39C299 47 286 50 276 49"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M274 78C287 69 300 59 311 47M281 72C291 80 298 94 305 104C312 114 321 114 329 106"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M321 106C328 91 332 73 334 57C336 43 332 36 328 42C323 51 326 81 328 99C330 110 333 113 336 109C340 104 340 94 346 88C352 82 360 84 360 94C360 102 358 109 364 111C370 113 376 107 381 102"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M376 98C379 86 391 81 399 86C407 91 405 103 398 109C390 115 380 112 379 104C378 96 385 89 393 88C402 87 406 95 406 102C406 109 410 112 416 110C421 108 425 104 429 100"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M424 109C428 100 430 92 431 86C432 96 431 106 435 110C440 115 442 100 448 92C454 84 462 86 462 96C462 104 461 110 467 112C474 114 481 108 487 102C491 98 495 97 499 99"
+        />
+
+        <path
+          class="signature-stroke"
+          d="M112 139C192 149 291 151 384 144C439 140 482 132 515 123C527 120 531 123 522 128C507 136 482 142 454 146"
+        />
+      </svg>
+
       <div class="hero-sub">
         <i class="fas fa-location-dot" style="color:#3b82f6; margin-right: 6px;"></i> Pakistan · 
         <span style="color:#9bb8f0;">Backend · AI · DevOps · Security</span>
@@ -723,6 +834,50 @@
       this.reset();
     });
     
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const signature = document.querySelector(".hero-signature");
+      const paths = signature?.querySelectorAll("path");
+
+      if (!signature || !paths) return;
+
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      paths.forEach((path, index) => {
+        const length = path.getTotalLength();
+
+        path.style.strokeDasharray = `${length}px`;
+        path.style.strokeDashoffset = `${length}px`;
+
+        if (reducedMotion) {
+          path.style.opacity = "1";
+          path.style.strokeDashoffset = "0px";
+          return;
+        }
+
+        const delay = index * 180;
+        const duration = index === paths.length - 1 ? 850 : 300;
+
+        setTimeout(() => {
+          path.style.opacity = "1";
+          path.style.transition =
+            `stroke-dashoffset ${duration}ms cubic-bezier(0.45, 0, 0.3, 1)`;
+
+          requestAnimationFrame(() => {
+            path.style.strokeDashoffset = "0px";
+          });
+        }, delay);
+      });
+
+      if (!reducedMotion) {
+        setTimeout(() => {
+          signature.classList.add("finished");
+        }, paths.length * 180 + 1000);
+      }
+    });
   </script>
 </body>
 </html>
