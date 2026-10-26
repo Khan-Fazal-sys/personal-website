@@ -1319,20 +1319,25 @@
             <label for="cf-name">Name</label>
             <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="Your name" />
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <a href="mailto:khanfa719@gmail.com"><i class="fas fa-envelope"></i> khanfa719@gmail.com</a>
-          <a href="https://github.com/Khan-Fazal-sys" target="_blank"><i class="fab fa-github"></i> github.com/Khan-Fazal-sys</a>
-          <a href="https://huggingface.co/Khan719" target="_blank"><i class="fas fa-robot"></i> huggingface.co/Khan719</a>
-          <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/fazal-khan</a>
-          <p style="margin-top:1rem; color:#8ba7d5; font-size:clamp(0.8rem,2.5vw,0.95rem);"><i class="fas fa-map-pin" style="color:#3b82f6; margin-right:6px;"></i> USA · GMT-5</p>
-        </div>
-      </div>
-    </section>
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@example.com" />
+
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required placeholder="Tell me about your AI, backend, or security project..."></textarea>
+
+            <!-- Honeypot — visually hidden, bait for bots. Real users will never see/fill it. -->
+            <label for="cf-gotcha" class="honeypot" aria-hidden="true">Leave this field empty</label>
+            <input type="text" id="cf-gotcha" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <button type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+
+            <p class="contact-fallback">
+              Prefer email? <a href="mailto:khanfa719@gmail.com">khanfa719@gmail.com</a>
+            </p>
+          </form>
   </main>
 
   <footer>
