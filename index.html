@@ -1086,6 +1086,87 @@
       .project-card, .skill-category, .timeline-item,
       .security-item, .certs-item { break-inside: avoid; }
     }
+    /* Mobile navigation button */
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      z-index: 102;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #a8c7f5;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Hamburger to close icon */
+    .menu-toggle[aria-expanded="true"] span:first-child {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      nav[aria-label="Primary"] {
+        position: relative;
+        flex-wrap: nowrap;
+        padding: 0.8rem 1rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav[aria-label="Primary"] ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 1rem;
+        background: rgba(11, 13, 16, 0.98);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        backdrop-filter: blur(14px);
+        z-index: 101;
+      }
+
+      nav[aria-label="Primary"] ul.open {
+        display: flex;
+      }
+
+      nav[aria-label="Primary"] ul a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      nav[aria-label="Primary"] ul a::after {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1095,7 +1176,20 @@
   <header>
     <nav aria-label="Primary">
       <a class="brand" href="#hero">Fazal Khan</a>
-      <ul>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="primary-navigation">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -1594,6 +1688,60 @@
       }
     }
   })();
+  
+    /* ---------- Mobile navigation ---------- */
+
+  var menuToggle = document.querySelector('.menu-toggle');
+  var navigation = document.getElementById('primary-navigation');
+
+  if (menuToggle && navigation) {
+    function closeMenu() {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      navigation.classList.remove('open');
+    }
+
+    function toggleMenu() {
+      var isOpen =
+        menuToggle.getAttribute('aria-expanded') === 'true';
+
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Open navigation menu' : 'Close navigation menu'
+      );
+
+      navigation.classList.toggle('open', !isOpen);
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    navigation.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (
+        !menuToggle.contains(event.target) &&
+        !navigation.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+  }
   </script>
 
   <!-- Google tag (gtag.js) — kept verbatim per spec -->
